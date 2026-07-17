@@ -96,7 +96,7 @@
     .plans{
       display:flex; overflow-x:auto; gap:16px;
       scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-      padding-bottom:8px; margin:0 -24px; padding-left:24px; padding-right:24px;
+      padding-top:22px; padding-bottom:8px; margin:-22px -24px 0; padding-left:24px; padding-right:24px;
       scrollbar-width:none;
     }
     .plans::-webkit-scrollbar{display:none;}
@@ -193,27 +193,44 @@
   .work-with-us a{color:var(--crimson); font-weight:700; text-decoration:none;}
   .work-with-us a:hover{text-decoration:underline;}
 
-  .personal-cta{
-    background:var(--white); border:1px solid #e4e7f0; border-radius:10px;
-    padding:34px 36px; display:flex; align-items:center; justify-content:space-between;
-    gap:24px; flex-wrap:wrap;
+  .trust-strip{background:var(--navy); padding:16px 0;}
+  .trust-strip .wrap{
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+    gap:10px 28px; font-size:12px; color:#cdd8f5; letter-spacing:.02em; text-align:center;
   }
-  .personal-cta-text .tag{
-    display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.06em;
-    text-transform:uppercase; color:var(--crimson); margin-bottom:8px;
+  .trust-strip span{position:relative;}
+  .trust-strip span + span::before{
+    content:"•"; position:absolute; left:-16px; color:var(--hair);
   }
-  .personal-cta-text h3{font-size:20px; color:var(--navy-deep); margin:0 0 8px; font-family:'Manrope',sans-serif; font-weight:800; text-transform:none;}
-  .personal-cta-text p{font-size:14px; color:var(--steel); margin:0; max-width:52ch; line-height:1.5;}
-  .btn-outline-navy{
-    display:inline-flex; align-items:center; gap:8px; flex:none;
-    border:2px solid var(--navy); color:var(--navy); padding:14px 26px;
-    border-radius:2px; font-weight:800; font-size:13.5px; letter-spacing:.03em;
-    text-transform:uppercase; text-decoration:none;
-    transition:transform .25s ease, background .25s ease, color .25s ease;
-  }
-  .btn-outline-navy:hover{background:var(--navy); color:var(--white); transform:translateY(-2px);}
   @media (max-width:640px){
-    .personal-cta{flex-direction:column; align-items:flex-start; text-align:left;}
+    .trust-strip span + span::before{display:none;}
+  }
+
+  .personal-cta{
+    background:linear-gradient(120deg, var(--navy-mid) 0%, var(--navy-deep) 100%);
+    border-radius:10px; padding:40px 40px; display:flex; align-items:center; justify-content:space-between;
+    gap:28px; flex-wrap:wrap; position:relative; overflow:hidden;
+  }
+  .personal-cta::before{
+    content:"💪"; position:absolute; right:-10px; bottom:-30px; font-size:160px; opacity:.08; line-height:1;
+  }
+  .personal-cta-text{position:relative; z-index:1;}
+  .personal-cta-text .tag{
+    display:inline-flex; align-items:center; gap:8px; font-size:11.5px; font-weight:800; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--white); background:rgba(255,255,255,.12); padding:7px 14px; border-radius:100px; margin-bottom:14px;
+  }
+  .personal-cta-text h3{font-size:26px; color:var(--white); margin:0 0 10px; font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.01em;}
+  .personal-cta-text p{font-size:15px; color:#cfd7ef; margin:0; max-width:52ch; line-height:1.6;}
+  .btn-outline-navy{
+    display:inline-flex; align-items:center; gap:8px; flex:none; position:relative; z-index:1;
+    background:var(--crimson); color:var(--white); padding:16px 30px;
+    border-radius:2px; font-weight:800; font-size:13.5px; letter-spacing:.03em;
+    text-transform:uppercase; text-decoration:none; border:2px solid transparent;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-outline-navy:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(185,19,62,.4);}
+  @media (max-width:640px){
+    .personal-cta{flex-direction:column; align-items:flex-start; text-align:left; padding:32px 28px;}
     .btn-outline-navy{width:100%; justify-content:center; box-sizing:border-box;}
   }
   .credit a{color:var(--crimson); font-weight:700; text-decoration:none;}
@@ -277,8 +294,6 @@
       <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=5521972292545&text=Oi!%20Quero%20me%20matricular%20na%20SkyFit%20Centro%20Rio." target="_blank" rel="noopener">Quero me matricular</a>
       <a class="btn btn-ghost" href="#planos">Ver todos os planos</a>
     </div>
-    <p class="hero-trust">Também aceitamos TotalPass (a partir do TP2) e Wellhub (a partir do Silver)</p>
-    <p class="hero-trust">Unidade da SkyFit Academia — uma das redes de academia que mais cresce no Brasil</p>
   </div>
 </section>
 
@@ -495,6 +510,7 @@
       <div class="qa stagger-item"><h3>Vocês aceitam TotalPass ou Wellhub?</h3><p>Sim! Aceitamos TotalPass a partir do plano TP2 e Wellhub a partir do plano Silver.</p></div>
       <div class="qa stagger-item"><h3>A unidade tem estacionamento?</h3><p>Não, a SkyFit Centro Rio não possui estacionamento próprio.</p></div>
       <div class="qa stagger-item"><h3>Sou personal autônomo, posso dar aula na SkyFit?</h3><p>Sim! Temos o plano Personal Autônomo (R$99,90/mês, sem fidelidade, exclusivo Centro Rio), com aulas sem limite pra seus próprios alunos e acesso também pra você treinar na unidade. É obrigatório o uso da camisa personal (R$120,00, disponível em todos os tamanhos).</p></div>
+      <div class="qa stagger-item"><h3>Qual o horário de atendimento no WhatsApp?</h3><p>Nosso WhatsApp responde 24h por dia. Das 5h30 às 21h30 o atendimento é humano + IA; fora desse horário, a IA continua te ajudando até a equipe assumir.</p></div>
       <div class="qa stagger-item"><h3>Como faço pra me matricular?</h3><p>Chama no WhatsApp pelo botão acima — a equipe te passa todos os detalhes e já agenda sua avaliação.</p></div>
     </div>
   </div>
@@ -509,6 +525,14 @@
 </section>
 
 <div class="stripe"></div>
+
+<div class="trust-strip">
+  <div class="wrap">
+    <span>TotalPass (TP2+) e Wellhub (Silver+)</span>
+    <span>Rede que mais cresce no Brasil</span>
+    <span>WhatsApp com resposta 24h</span>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
