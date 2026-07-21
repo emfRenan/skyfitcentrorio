@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <title>Planos SkyFit Centro Rio</title>
-<meta name="description" content="Conheça os planos da SkyFit Academia — Centro Rio. Treino personalizado, aulas coletivas e estrutura completa a partir de R$109,90.">
+<meta name="description" content="Conheça os planos da SkyFit Academia, unidade Centro Rio. Treino personalizado, aulas coletivas e estrutura completa a partir de R$109,90.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -123,8 +123,8 @@
     background:#fff2f5; border:1px solid #f6c7d2; border-radius:6px;
     padding:9px 11px; margin:2px 0; color:var(--crimson-deep); font-weight:800;
   }
-  .plan ul li.highlight::before{content:"🎁"; font-weight:400;}
-  .plan ul li.highlight.shirt::before{content:"👕"; font-weight:400;}
+  .plan ul li.highlight::before{content:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjkxMzNlIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSI0IiB5PSI5IiB3aWR0aD0iMTYiIGhlaWdodD0iMTEiIHJ4PSIxIi8+PHBhdGggZD0iTTMuNSA5aDE3djMuMmgtMTd6Ii8+PHBhdGggZD0iTTEyIDkuMnYxMC44Ii8+PHBhdGggZD0iTTEyIDkuMmMtMS0zLTUuMi0zLjgtNS4yLTFDNi44IDkuNyA5IDkuMiAxMiA5LjJ6TTEyIDkuMmMxLTMgNS4yLTMuOCA1LjItMWMwIDEuNS0yLjIgMS01LjIgMXoiLz48L3N2Zz4="); width:16px; height:16px; display:inline-block;}
+  .plan ul li.highlight.shirt::before{content:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjkxMzNlIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNOCA0LjNMMTIgNmw0LTEuNyA0IDMtMi42IDIuNkwxNiA4LjRWMjBIOFY4LjRsLTEuNCAxLjVMNCA3LjN6Ii8+PC9zdmc+"); width:16px; height:16px; display:inline-block;}
   .plan ul li::before{content:"✓"; flex:none; color:var(--crimson); font-weight:800;}
   .plan .btn{width:100%; justify-content:center; box-sizing:border-box;}
 
@@ -142,14 +142,66 @@
   /* diferenciais */
   .diffs{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px;}
   .diff{background:var(--white); border:1px solid #e4e7f0; border-radius:8px; padding:26px; text-align:center;}
-  .diff .icon{width:52px;height:52px; margin:0 auto 16px; display:grid; place-items:center; background:#eef1fb; border-radius:100px; color:var(--navy); font-size:22px;}
-  .blink-icon span{display:inline-block; animation:blink 3.2s ease-in-out infinite;}
+  .diff .icon{
+    width:76px;height:76px; margin:0 auto 22px; display:flex; align-items:center; justify-content:center;
+    border-radius:50%; position:relative;
+    background: radial-gradient(circle at 30% 26%, #3a6fc4 0%, #103a86 45%, #00113a 100%);
+    box-shadow:
+      0 22px 28px -10px rgba(0,17,58,.55),
+      0 4px 8px rgba(0,17,58,.3),
+      inset 0 3px 4px rgba(255,255,255,.55),
+      inset 0 -10px 16px rgba(0,0,0,.4),
+      inset 4px 0 8px rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .35s cubic-bezier(.2,.8,.3,1.4), box-shadow .35s ease;
+  }
+  .diff:hover .icon{
+    transform:translateY(-4px) rotate(-4deg) scale(1.06);
+    box-shadow:
+      0 30px 34px -10px rgba(0,17,58,.6),
+      0 6px 10px rgba(0,17,58,.35),
+      inset 0 3px 4px rgba(255,255,255,.6),
+      inset 0 -10px 16px rgba(0,0,0,.4);
+  }
+  .diff .icon::before{
+    content:""; position:absolute; left:50%; bottom:-14px; width:46px; height:12px;
+    background:radial-gradient(ellipse, rgba(0,17,58,.32) 0%, rgba(0,17,58,0) 72%);
+    transform:translateX(-50%); border-radius:50%; z-index:0;
+    transition:transform .35s ease, opacity .35s ease;
+  }
+  @media (max-width:900px){
+    .diff .icon{animation: icon-float3d 3.4s ease-in-out infinite;}
+    .diff .icon::before{animation: icon-shadow3d 3.4s ease-in-out infinite;}
+    .diff:nth-child(2) .icon, .diff:nth-child(2) .icon::before{animation-delay:.5s;}
+    .diff:nth-child(3) .icon, .diff:nth-child(3) .icon::before{animation-delay:1s;}
+    .diff:nth-child(4) .icon, .diff:nth-child(4) .icon::before{animation-delay:1.5s;}
+    .diff:nth-child(5) .icon, .diff:nth-child(5) .icon::before{animation-delay:.25s;}
+    .diff:nth-child(6) .icon, .diff:nth-child(6) .icon::before{animation-delay:.75s;}
+  }
+  @keyframes icon-float3d{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-9px) rotate(-5deg); }
+  }
+  @keyframes icon-shadow3d{
+    0%,100%{ transform:translateX(-50%) scale(1); opacity:.9; }
+    50%{ transform:translateX(-50%) scale(.72); opacity:.45; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .diff .icon, .diff .icon::before{animation:none !important;}
+  }
+  .diff .icon::after{
+    content:""; position:absolute; top:8px; left:14px; width:22px; height:11px;
+    background:rgba(255,255,255,.5); border-radius:50%; filter:blur(3px);
+  }
+  .diff .icon svg{width:30px;height:30px; position:relative; z-index:1; filter:drop-shadow(0 2px 2px rgba(0,0,0,.25));}
+  .diff .icon.blink-icon svg .blink-eyes{transform-origin:center; animation:blink 3.2s ease-in-out infinite;}
+  @media (prefers-reduced-motion: reduce){
+    .diff .icon.blink-icon svg .blink-eyes{animation:none !important;}
+    .diff:hover .icon{transform:none;}
+  }
   @keyframes blink{
     0%, 88%, 100%{ transform:scaleY(1); }
     92%{ transform:scaleY(0.1); }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .blink-icon span{animation:none !important;}
   }
   .diff h3{font-size:16px; text-transform:none; font-family:'Manrope',sans-serif; font-weight:800; color:var(--navy-deep); margin:0 0 8px;}
   .diff p{font-size:13.5px; color:var(--steel); line-height:1.5; margin:0;}
@@ -161,7 +213,8 @@
   .stat-num{font-family:'Anton',sans-serif; font-size:44px; color:var(--crimson); line-height:1;}
   .stat-label{font-size:12.5px; color:#a9b6dd; text-transform:uppercase; letter-spacing:.04em; margin-top:8px;}
   .amenities{display:flex; flex-wrap:wrap; justify-content:center; gap:14px;}
-  .amenity{background:rgba(255,255,255,.06); border:1px solid var(--hair); border-radius:100px; padding:12px 22px; font-size:14px; color:#dbe2f5;}
+  .amenity{background:rgba(255,255,255,.06); border:1px solid var(--hair); border-radius:100px; padding:12px 22px; font-size:14px; color:#dbe2f5; display:inline-flex; align-items:center; gap:9px;}
+  .amenity svg{width:18px;height:18px; flex:none; stroke:#ff6b85;}
 
   /* horarios + local */
   .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
@@ -174,6 +227,7 @@
   .addr{font-size:15px; line-height:1.7; color:var(--ink); margin-bottom:18px;}
   .addr b{display:block; color:var(--navy-deep); font-size:16px; margin-bottom:4px;}
   .social-row{display:flex; align-items:center; gap:10px; font-size:14.5px; color:var(--steel);}
+  .social-row svg{width:18px;height:18px; flex:none;}
   .social-row b{color:var(--navy-deep);}
   @media (max-width:760px){.info-grid{grid-template-columns:1fr;}}
 
@@ -212,7 +266,8 @@
     gap:28px; flex-wrap:wrap; position:relative; overflow:hidden;
   }
   .personal-cta::before{
-    content:"💪"; position:absolute; right:-10px; bottom:-30px; font-size:160px; opacity:.08; line-height:1;
+    content:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yIDEwaDEuNnY0SDJ6TTIwLjQgMTBIMjJ2NGgtMS42ek00LjggNy41aDEuOHY5SDQuOHpNMTcuNCA3LjVoMS44djloLTEuOHpNNy42IDExaDguOHYySDcuNnoiLz48L3N2Zz4=");
+    position:absolute; right:-10px; bottom:-30px; width:180px; height:180px; opacity:.08;
   }
   .personal-cta-text{position:relative; z-index:1;}
   .personal-cta-text .tag{
@@ -284,7 +339,7 @@
   <div class="wrap">
     <span class="eyebrow">SkyFit Academia · Centro Rio</span>
     <h1>Treino completo. <span>Preço justo.</span></h1>
-    <p class="lead">Treino personalizado, aulas coletivas e estrutura completa — escolha o plano que combina com sua rotina.</p>
+    <p class="lead">Treino personalizado, aulas coletivas e estrutura completa. Escolha o plano que combina com sua rotina.</p>
     <div class="hero-price">
       <span class="from">Planos a partir de</span>
       <span class="value">R$ <em>109,90</em>/mês</span>
@@ -408,7 +463,7 @@
           <li>Acesso também pra você treinar na unidade</li>
           <li>Estrutura completa da unidade</li>
           <li>Válido somente na SkyFit Centro Rio</li>
-          <li class="highlight shirt">Camisa personal obrigatória — R$120,00 (todos os tamanhos em estoque)</li>
+          <li class="highlight shirt">Camisa personal obrigatória: R$120,00 (todos os tamanhos em estoque)</li>
         </ul>
         <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=5521972292545&text=Oi!%20Sou%20personal%20e%20quero%20saber%20mais%20sobre%20o%20plano%20PERSONAL%20AUT%C3%94NOMO%20da%20SkyFit%20Centro%20Rio." target="_blank" rel="noopener">Quero esse plano</a>
       </div>
@@ -448,12 +503,12 @@
       <h2>O que tem incluso</h2>
     </div>
     <div class="diffs reveal-stagger reveal">
-      <div class="diff stagger-item"><div class="icon">★</div><h3>Treino personalizado</h3><p>Incluso em todos os planos, com acompanhamento de profissionais especializados.</p></div>
-      <div class="diff stagger-item"><div class="icon">◆</div><h3>Aulas coletivas</h3><p>SkyDance, SkyBox e SkyCardio pra variar o treino sem monotonia.</p></div>
-      <div class="diff stagger-item"><div class="icon">✓</div><h3>Avaliação física</h3><p>Trimestral no plano Anual, pra acompanhar sua evolução de perto.</p></div>
-      <div class="diff stagger-item"><div class="icon">●</div><h3>Estrutura completa</h3><p>4 andares pensados pra treinar com conforto do início ao fim.</p></div>
-      <div class="diff stagger-item"><div class="icon blink-icon"><span>🙂</span></div><h3>Acesso por reconhecimento facial</h3><p>Entra na unidade sem cartão, chaveiro ou pulseira — só o seu rosto.</p></div>
-      <div class="diff stagger-item"><div class="icon">📸</div><h3>Ambiente instagramável</h3><p>Painel decorado, letreiro de neon e espelhos grandes pra registrar o treino. E, diferente da maioria das academias, aqui é super claro — nada daquele clima escuro.</p></div>
+      <div class="diff stagger-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.95 6.28L22 9.77l-5.2 4.86L18 21.5l-6-3.4-6 3.4 1.2-6.87L2 9.77l7.05-1L12 2.5z"/></svg></div><h3>Treino personalizado</h3><p>Incluso em todos os planos, com acompanhamento de profissionais especializados.</p></div>
+      <div class="diff stagger-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3 20.5c0-3.3 2.6-5.5 6-5.5s6 2.2 6 5.5"/><path d="M15.2 15.3c2.6.4 4.3 2.2 4.3 5.2"/></svg></div><h3>Aulas coletivas</h3><p>SkyDance, SkyBox e SkyCardio pra variar o treino sem monotonia.</p></div>
+      <div class="diff stagger-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 12.5l2 2 4-4.5"/></svg></div><h3>Avaliação física</h3><p>Trimestral no plano Anual, pra acompanhar sua evolução de perto.</p></div>
+      <div class="diff stagger-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6l8-4 8 4v15"/><path d="M2 21h20"/><path d="M9 9.3h.01M9 13.3h.01M9 17.3h.01M15 9.3h.01M15 13.3h.01M15 17.3h.01"/></svg></div><h3>Estrutura completa</h3><p>4 andares pensados pra treinar com conforto do início ao fim.</p></div>
+      <div class="diff stagger-item"><div class="icon blink-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2"/><path d="M16 4h2a2 2 0 0 1 2 2v2"/><path d="M20 16v2a2 2 0 0 1-2 2h-2"/><path d="M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M9 15.2c1.2 1 4.8 1 6 0"/><g class="blink-eyes"><line x1="9" y1="11" x2="9" y2="11" stroke-width="2.6"/><line x1="15" y1="11" x2="15" y2="11" stroke-width="2.6"/></g></svg></div><h3>Acesso por reconhecimento facial</h3><p>Entra na unidade sem cartão, chaveiro ou pulseira. Só com o seu rosto.</p></div>
+      <div class="diff stagger-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h1.3l1-1.6h7.4l1 1.6H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.4"/></svg></div><h3>Ambiente instagramável</h3><p>Painel decorado, letreiro de neon e espelhos grandes pra registrar o treino. E, diferente da maioria das academias, aqui é super claro, sem aquele clima escuro comum por aí.</p></div>
     </div>
   </div>
 </section>
@@ -472,11 +527,11 @@
       <div class="stat-card stagger-item"><div class="stat-num"><span class="count" data-target="4">0</span>+<span class="count" data-target="4">0</span></div><div class="stat-label">Banheiros individuais (masc. e fem.)</div></div>
     </div>
     <div class="amenities reveal-stagger reveal">
-      <div class="amenity stagger-item">🚿 Chuveiros a gás — água quente sempre</div>
-      <div class="amenity stagger-item">💇‍♀️ Secador de cabelo no banheiro feminino</div>
-      <div class="amenity stagger-item">⏱️ Aulas coletivas de 30 minutos, no ritmo de quem treina no Centro</div>
+      <div class="amenity stagger-item"><svg viewBox="0 0 24 24" fill="none" stroke="#b9133e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 6.2a4.2 4.2 0 0 0-8 1.3c0 .9.3 1.5.8 2l-2.8 2.8"/><path d="M4 11.3h15"/><path d="M8 15.3v2M12 15.3v3M16 15.3v2"/></svg> Chuveiros a gás, com água quente sempre</div>
+      <div class="amenity stagger-item"><svg viewBox="0 0 24 24" fill="none" stroke="#b9133e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5a4 4 0 0 1 4-4h5a4 4 0 0 1 0 8h-1.5v5a2 2 0 0 1-2 2H6.5"/><circle cx="18.3" cy="7.5" r="1"/><path d="M20 11l1.6 1M20 4l1.6-1M21.3 7.5H23"/></svg> Secador de cabelo no banheiro feminino</div>
+      <div class="amenity stagger-item"><svg viewBox="0 0 24 24" fill="none" stroke="#b9133e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.3v5l3.5 2"/></svg> Aulas coletivas de 30 minutos, no ritmo de quem treina no Centro</div>
     </div>
-    <p class="fine-print" style="color:#93a1c9;">🛒 Loja de conveniência na unidade: água, isotônicos e energéticos à venda. Em breve, também bonés, camisas e garrafas personalizadas SkyFit.</p>
+    <p class="fine-print" style="color:#93a1c9;"><svg viewBox="0 0 24 24" fill="none" stroke="#93a1c9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-4px;margin-right:4px;"><path d="M3 4h2l2.3 12a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.6L21 8H6.2"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg>Loja de conveniência na unidade: água, isotônicos e energéticos à venda. Em breve, também bonés, camisas e garrafas personalizadas SkyFit.</p>
   </div>
 </section>
 
@@ -492,13 +547,13 @@
       <div class="info-card stagger-item">
         <h3>Onde estamos</h3>
         <div class="addr">
-          <b>SkyFit Academia — Centro Rio</b>
-          Rua Sete de Setembro, nº 75, Centro — Rio de Janeiro, RJ
+          <b>SkyFit Academia · Centro Rio</b>
+          Rua Sete de Setembro, nº 75, Centro, Rio de Janeiro, RJ
         </div>
-        <div class="social-row">📞 <b>(21) 97229-2545</b></div>
-        <div class="social-row">📷 <b>@skyfitcentrorio</b></div>
-        <div class="social-row">📧 <b><a href="mailto:centrorio@skyfitacademias.com.br" style="color:inherit;text-decoration:none;">centrorio@skyfitacademias.com.br</a></b></div>
-        <div class="social-row">🚗 A unidade não possui estacionamento próprio</div>
+        <div class="social-row"><svg viewBox="0 0 24 24" fill="none" stroke="#0b1220" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l1.4 4-2 1.6a11.5 11.5 0 0 0 5 5l1.6-2 4 1.4v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> <b>(21) 97229-2545</b></div>
+        <div class="social-row"><svg viewBox="0 0 24 24" fill="none" stroke="#0b1220" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#0b1220" stroke="none"/></svg> <b>@skyfitcentrorio</b></div>
+        <div class="social-row"><svg viewBox="0 0 24 24" fill="none" stroke="#0b1220" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg> <b><a href="mailto:centrorio@skyfitacademias.com.br" style="color:inherit;text-decoration:none;">centrorio@skyfitacademias.com.br</a></b></div>
+        <div class="social-row"><svg viewBox="0 0 24 24" fill="none" stroke="#0b1220" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l1.4-4.8A2 2 0 0 1 6.3 6.7h11.4a2 2 0 0 1 1.9 1.5L21 13"/><path d="M3 13h18v3.6a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V16H6v.6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7.3" cy="16.6" r="1.3"/><circle cx="16.7" cy="16.6" r="1.3"/></svg> A unidade não possui estacionamento próprio</div>
       </div>
     </div>
   </div>
@@ -510,7 +565,7 @@
       <div class="personal-cta-text">
         <span class="tag">Quer treinar acompanhado?</span>
         <h3>Conheça nossos personal trainers</h3>
-        <p>Cada um com uma especialidade — emagrecimento, hipertrofia, funcional, lesões e mais. Encontre o profissional certo pro seu objetivo.</p>
+        <p>Cada um com uma especialidade: emagrecimento, hipertrofia, funcional, lesões e mais. Encontre o profissional certo pro seu objetivo.</p>
       </div>
       <a class="btn btn-outline-navy" href="https://personalsky.vercel.app/" target="_blank" rel="noopener">Ver personal trainers</a>
     </div>
@@ -524,7 +579,7 @@
       <h2>Perguntas Frequentes</h2>
     </div>
     <div class="faq reveal-stagger reveal">
-      <div class="qa stagger-item"><h3>Qual plano não tem fidelidade?</h3><p>O plano Mensal, pago por débito, crédito ou PIX, não tem fidelidade — você pode cancelar quando quiser.</p></div>
+      <div class="qa stagger-item"><h3>Qual plano não tem fidelidade?</h3><p>O plano Mensal, pago por débito, crédito ou PIX, não tem fidelidade. Você pode cancelar quando quiser.</p></div>
       <div class="qa stagger-item"><h3>Os planos Anual e Exclusivo Unidade têm fidelidade?</h3><p>Sim, ambos têm fidelidade de 12 meses. O plano Recorrente tem fidelidade de 3 meses.</p></div>
       <div class="qa stagger-item"><h3>Posso treinar em outras unidades da SkyFit?</h3><p>Os planos Mensal e Recorrente dão acesso a todas as unidades da rede. O Anual e o Exclusivo Unidade valem somente na SkyFit Centro Rio.</p></div>
       <div class="qa stagger-item"><h3>O que acontece se eu cancelar antes do fim da fidelidade?</h3><p>Nos planos com fidelidade (Recorrente, Anual e Exclusivo Unidade), o cancelamento antecipado tem multa de 20% sobre o valor de cada mês restante do contrato.</p></div>
@@ -532,7 +587,7 @@
       <div class="qa stagger-item"><h3>A unidade tem estacionamento?</h3><p>Não, a SkyFit Centro Rio não possui estacionamento próprio.</p></div>
       <div class="qa stagger-item"><h3>Sou personal autônomo, posso dar aula na SkyFit?</h3><p>Sim! Temos o plano Personal Autônomo (R$99,90/mês, sem fidelidade, exclusivo Centro Rio), com aulas sem limite pra seus próprios alunos e acesso também pra você treinar na unidade. É obrigatório o uso da camisa personal (R$120,00, disponível em todos os tamanhos).</p></div>
       <div class="qa stagger-item"><h3>Qual o horário de atendimento no WhatsApp?</h3><p>Nosso WhatsApp responde 24h por dia. Das 5h30 às 21h30 o atendimento é humano + IA; fora desse horário, a IA continua te ajudando até a equipe assumir.</p></div>
-      <div class="qa stagger-item"><h3>Como faço pra me matricular?</h3><p>Chama no WhatsApp pelo botão acima — a equipe te passa todos os detalhes e já agenda sua avaliação.</p></div>
+      <div class="qa stagger-item"><h3>Como faço pra me matricular?</h3><p>Chama no WhatsApp pelo botão acima. A equipe te passa todos os detalhes e já agenda sua avaliação.</p></div>
     </div>
   </div>
 </section>
@@ -557,7 +612,7 @@
 
 <footer>
   <div class="wrap">
-    © 2026 SkyFit Academia — Centro Rio. Fortalecendo a nossa nação.
+    © 2026 SkyFit Academia · Centro Rio. Fortalecendo a nossa nação.
     <div class="work-with-us">Quer trabalhar com a gente? Manda seu currículo pra <a href="mailto:skyfitcentrorio@gmail.com">skyfitcentrorio@gmail.com</a></div>
     <div class="credit">Feito por <a href="https://instagram.com/R_ENAN_R" target="_blank" rel="noopener">@R_ENAN_R</a></div>
   </div>
