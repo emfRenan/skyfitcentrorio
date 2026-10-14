@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    { "source": "/personal", "destination": "/personal/", "permanent": false },
+    { "source": "/personais", "destination": "/personal/", "permanent": false },
+    { "source": "/perosonal", "destination": "/personal/", "permanent": false },
+    { "source": "/cadastro", "destination": "https://wellhub-totalpass-form.vercel.app/", "permanent": false },
+    { "source": "/tv", "destination": "https://skyfit-tv.vercel.app/tv", "permanent": false },
+    { "source": "/equipe", "destination": "https://skyfit-centro-rio-equipe.vercel.app/", "permanent": false },
+    { "source": "/gestao", "destination": "https://skyfit-gestao.vercel.app/", "permanent": false },
+    { "source": "/ocorrencias", "destination": "https://skyfit-ocorrencia.vercel.app/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/personal/", "destination": "/personal/index.html" }
+  ]
+}
