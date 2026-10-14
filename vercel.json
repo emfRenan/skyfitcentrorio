@@ -1,5 +1,9 @@
 {
   "redirects": [
+    { "source": "/jess-skyfit", "destination": "/personal/", "permanent": true },
+    { "source": "/jess-skyfit.html", "destination": "/personal/", "permanent": true },
+    { "source": "/personal/jess-skyfit", "destination": "/personal/", "permanent": true },
+    { "source": "/personal/jess-skyfit.html", "destination": "/personal/", "permanent": true },
     { "source": "/personal", "destination": "/personal/", "permanent": false },
     { "source": "/personais", "destination": "/personal/", "permanent": false },
     { "source": "/perosonal", "destination": "/personal/", "permanent": false },
