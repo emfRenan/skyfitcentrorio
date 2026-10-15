@@ -14,6 +14,14 @@
     { "source": "/ocorrencias", "destination": "https://skyfit-ocorrencia.vercel.app/", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/personal/", "destination": "/personal/index.html" }
+    { "source": "/personal/", "destination": "/personal/index.html" },
+    { "source": "/agregadores", "destination": "https://wellhub-totalpass-form.vercel.app/" },
+    { "source": "/agregadores/", "destination": "https://wellhub-totalpass-form.vercel.app/" },
+    { "source": "/_next/:path*", "destination": "https://wellhub-totalpass-form.vercel.app/_next/:path*" },
+    { "source": "/api/:path*", "destination": "https://wellhub-totalpass-form.vercel.app/api/:path*" },
+    { "source": "/Exo.ttf", "destination": "https://wellhub-totalpass-form.vercel.app/Exo.ttf" },
+    { "source": "/skyfit-logo.png", "destination": "https://wellhub-totalpass-form.vercel.app/skyfit-logo.png" },
+    { "source": "/personal-trainers-ai.png", "destination": "https://wellhub-totalpass-form.vercel.app/personal-trainers-ai.png" },
+    { "source": "/favicon.ico", "destination": "https://wellhub-totalpass-form.vercel.app/favicon.ico" }
   ]
 }
